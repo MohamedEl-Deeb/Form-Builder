@@ -2,35 +2,35 @@ import { createTheme, ThemeProvider } from "@mui/material/styles";
 import type { FC, ReactNode } from "react";
 import CssBaseline from "@mui/material/CssBaseline";
 
-export const theme = createTheme({
+const theme = createTheme({
   palette: {
     mode: "light",
 
     primary: {
-      main: "#673ab7",
-      light: "#7e57c2",
-      dark: "#512da8",
+      main: "#4f46e5",
+      light: "#818cf8",
+      dark: "#3730a3",
       contrastText: "#ffffff",
     },
 
     secondary: {
-      main: "#0f9d94",
-      light: "#3fb8b0",
-      dark: "#0b756e",
+      main: "#06b6d4",
+      light: "#67e8f9",
+      dark: "#0e7490",
       contrastText: "#ffffff",
     },
 
     background: {
-      default: "#f6f3fb",
+      default: "#f8fafc",
       paper: "#ffffff",
     },
 
     text: {
-      primary: "#202124",
-      secondary: "#5f6368",
+      primary: "#0f172a",
+      secondary: "#64748b",
     },
 
-    divider: "#e6e1ee",
+    divider: "#e2e8f0",
 
     success: {
       main: "#34a853",
@@ -46,7 +46,7 @@ export const theme = createTheme({
   },
 
   typography: {
-    fontFamily: `'Roboto', 'Arial', sans-serif`,
+    fontFamily: `'Inter', 'Roboto', 'Arial', sans-serif`,
 
     h3: {
       fontWeight: 600,
@@ -94,7 +94,7 @@ export const theme = createTheme({
         body: {
           margin: 0,
           background:
-            "linear-gradient(180deg, #efe7fb 0%, #f6f3fb 220px, #f6f3fb 100%)",
+            "radial-gradient(circle at top left, rgba(79, 70, 229, 0.16), transparent 34rem), radial-gradient(circle at top right, rgba(6, 182, 212, 0.14), transparent 30rem), #f8fafc",
         },
         "#root": {
           minHeight: "100vh",
@@ -114,13 +114,13 @@ export const theme = createTheme({
     MuiCard: {
       styleOverrides: {
         root: {
-          borderRadius: 16,
-          border: "1px solid #e6e1ee",
-          boxShadow: "0 1px 2px rgba(32,33,36,0.08)",
+          borderRadius: 24,
+          border: "1px solid rgba(226, 232, 240, 0.9)",
+          boxShadow: "0 18px 45px rgba(15, 23, 42, 0.06)",
           backgroundImage: "none",
           transition: "transform 0.15s ease, box-shadow 0.15s ease",
           "&:hover": {
-            boxShadow: "0 4px 18px rgba(103,58,183,0.10)",
+            boxShadow: "0 24px 60px rgba(79, 70, 229, 0.12)",
           },
         },
       },
@@ -156,9 +156,9 @@ export const theme = createTheme({
       styleOverrides: {
         root: {
           backgroundColor: "#fff",
-          borderRadius: 12,
+          borderRadius: 16,
           "&:hover .MuiOutlinedInput-notchedOutline": {
-            borderColor: "#7e57c2",
+            borderColor: "#818cf8",
           },
           "&.Mui-focused .MuiOutlinedInput-notchedOutline": {
             borderWidth: 2,
@@ -177,10 +177,10 @@ export const theme = createTheme({
     MuiAppBar: {
       styleOverrides: {
         root: {
-          background: "rgba(255,255,255,0.9)",
-          color: "#202124",
-          boxShadow: "0 1px 2px rgba(32,33,36,0.08)",
-          backdropFilter: "blur(10px)",
+          background: "rgba(255,255,255,0.78)",
+          color: "#0f172a",
+          boxShadow: "0 1px 0 rgba(226, 232, 240, 0.9)",
+          backdropFilter: "blur(18px)",
         },
       },
     },
