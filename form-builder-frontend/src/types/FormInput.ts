@@ -1,4 +1,4 @@
-import type { Control } from "react-hook-form";
+import type { Control, FieldValues } from "react-hook-form";
 
 type InputType = 'text-input' | 'select-input' | 'file-upload';
 interface BaseInput {
@@ -30,7 +30,7 @@ type FormElement = TextInput | SelectInput | FileUploadInput;
 
 interface BaseFieldProps {
   name: string;
-  control?: Control<any>;
+  control?: Control<FieldValues>;
   label: string;
   required?: boolean;
   disabled?: boolean

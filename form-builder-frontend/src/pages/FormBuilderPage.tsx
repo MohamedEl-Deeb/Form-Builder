@@ -3,7 +3,9 @@ import {
   Box,
   Button,
   Card,
+  Chip,
   CircularProgress,
+  Stack,
   TextField,
   Typography,
 } from "@mui/material";
@@ -190,12 +192,38 @@ export const FormBuilderPage = () => {
       <Card
         sx={{
           mb: 3,
-          p: 3,
-          borderTop: "8px solid",
-          borderTopColor: "primary.main",
+          p: { xs: 2.5, md: 3.5 },
+          overflow: "hidden",
+          background:
+            "linear-gradient(135deg, rgba(79, 70, 229, 0.10), rgba(6, 182, 212, 0.08) 45%, rgba(255,255,255,0.92))",
+          position: "relative",
+          "&::after": {
+            content: '""',
+            position: "absolute",
+            width: 220,
+            height: 220,
+            borderRadius: "50%",
+            right: -80,
+            top: -100,
+            background: "rgba(79, 70, 229, 0.12)",
+          },
         }}
       >
-        <Box sx={{ display: "flex", flexDirection: "column", gap: 2 }}>
+        <Stack spacing={1.25} sx={{ position: "relative", zIndex: 1, mb: 3 }}>
+          <Chip
+            color="primary"
+            label={isEditMode ? "Editing published form" : "New form draft"}
+            sx={{ alignSelf: "flex-start", fontWeight: 700 }}
+          />
+          <Typography variant="h4">
+            {isEditMode ? "Refine your form" : "Design a beautiful form"}
+          </Typography>
+          <Typography color="text.secondary" sx={{ maxWidth: 720 }}>
+            Build questions in a stable editor canvas. Click any card to edit it, add fields with the floating button, and ask the assistant for help when you want a faster draft.
+          </Typography>
+        </Stack>
+
+        <Box sx={{ display: "flex", flexDirection: "column", gap: 2, position: "relative", zIndex: 1 }}>
           <Controller
             name="title"
             control={control}
@@ -225,6 +253,20 @@ export const FormBuilderPage = () => {
           />
         </Box>
       </Card>
+
+      {fields.length === 0 && (
+        <Card sx={{ p: { xs: 3, md: 5 }, mb: 2.5, textAlign: "center", borderStyle: "dashed" }}>
+          <Typography variant="h6" gutterBottom>
+            Start with your first question
+          </Typography>
+          <Typography variant="body2" color="text.secondary" sx={{ mb: 2 }}>
+            Add a short answer, multiple choice, or file upload field. The question will stay visible while editing so the layout feels predictable.
+          </Typography>
+          <Button variant="contained" onClick={handleAddElement}>
+            Add Question
+          </Button>
+        </Card>
+      )}
 
       {fields.map((element, index) => (
         <FormElementBuilder
@@ -269,7 +311,9 @@ export const FormBuilderPage = () => {
         <Button
           type="submit"
           variant="contained"
+          size="large"
           disabled={saveMutation.isPending || !form.title?.trim() || form.elements.length === 0}
+          sx={{ px: 3.5 }}
         >
           {saveMutation.isPending ? (
             <>

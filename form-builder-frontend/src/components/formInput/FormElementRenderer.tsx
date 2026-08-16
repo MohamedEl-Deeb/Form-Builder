@@ -1,4 +1,4 @@
-import type { Control } from 'react-hook-form';
+import type { Control, FieldValues } from 'react-hook-form';
 import type { FormElement } from '../../types/FormInput';
 import { FileUploadField } from './FileUploadField';
 import { SelectInputField } from './SelectInputField';
@@ -6,7 +6,7 @@ import { TextInputField } from './TextInputField';
 
 interface Props {
   element: FormElement;
-  control?: Control<any>;
+  control?: Control<FieldValues>;
   name: string;
   preview: boolean;
 }
